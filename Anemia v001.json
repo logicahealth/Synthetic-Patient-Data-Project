@@ -1,0 +1,322 @@
+{
+  "name": "My Module",
+  "remarks": [
+    "A blank module"
+  ],
+  "states": {
+    "Initial": {
+      "type": "Initial",
+      "distributed_transition": [
+        {
+          "transition": "Pre-Anemic",
+          "distribution": 0.09
+        },
+        {
+          "transition": "Not Anemic",
+          "distribution": 0.91
+        }
+      ]
+    },
+    "Terminal": {
+      "type": "Terminal"
+    },
+    "Not Anemic": {
+      "type": "Simple",
+      "direct_transition": "Terminal"
+    },
+    "Male_Anemic_White": {
+      "type": "Simple",
+      "distributed_transition": [
+        {
+          "transition": "M_Anemic_White_0-14",
+          "distribution": 0.064
+        },
+        {
+          "transition": "M_Anemic_White_15-49",
+          "distribution": 0.064
+        },
+        {
+          "transition": "M_Anemic_White_50-79",
+          "distribution": 0.442
+        },
+        {
+          "transition": "M_Anemic_White_80-85",
+          "distribution": 0.43
+        }
+      ]
+    },
+    "Male_Anemic_Hispanic": {
+      "type": "Simple",
+      "distributed_transition": [
+        {
+          "transition": "M_Anemic_His_0-14",
+          "distribution": 0.282
+        },
+        {
+          "transition": "M_Anemic_His_15-49",
+          "distribution": 0.122
+        },
+        {
+          "transition": "M_Anemic_His_50-79",
+          "distribution": 0.5
+        },
+        {
+          "transition": "M_Anemic_His_80-85",
+          "distribution": 0.096
+        }
+      ]
+    },
+    "Female_Anemic_White": {
+      "type": "Simple",
+      "distributed_transition": [
+        {
+          "transition": "F_Anemic_White_0-14",
+          "distribution": 0.051
+        },
+        {
+          "transition": "F_Anemic_White_15-49",
+          "distribution": 0.39
+        },
+        {
+          "transition": "F_Anemic_White_50-79",
+          "distribution": 0.337
+        },
+        {
+          "transition": "F_Anemic_White_80-85",
+          "distribution": 0.221
+        }
+      ]
+    },
+    "Female_Anemic_Black": {
+      "type": "Simple",
+      "distributed_transition": [
+        {
+          "transition": "F_Anemic_Black_0-14",
+          "distribution": 0.15
+        },
+        {
+          "transition": "F_Anemic_Black_15-49",
+          "distribution": 0.56
+        },
+        {
+          "transition": "F_Anemic_Black_50-79",
+          "distribution": 0.25
+        },
+        {
+          "transition": "F_Anemic_Black_80-85",
+          "distribution": 0.04
+        }
+      ]
+    },
+    "Female_Anemic_Hispanic": {
+      "type": "Simple",
+      "distributed_transition": [
+        {
+          "transition": "F_Anemic_His_0-14",
+          "distribution": 0.125
+        },
+        {
+          "transition": "F_Anemic_His_15-49",
+          "distribution": 0.596
+        },
+        {
+          "transition": "F_Anemic_His_50-79",
+          "distribution": 0.234
+        },
+        {
+          "transition": "F_Anemic_His_80-85",
+          "distribution": 0.043
+        }
+      ]
+    },
+    "Pre-Anemic": {
+      "type": "Simple",
+      "distributed_transition": [
+        {
+          "transition": "White_Anemic",
+          "distribution": 0.25
+        },
+        {
+          "transition": "Black_Anemic",
+          "distribution": 0.44
+        },
+        {
+          "transition": "Hispanic_Anemic",
+          "distribution": 0.2
+        },
+        {
+          "transition": "Unspecific_Race_Anemic",
+          "distribution": 0.11
+        }
+      ]
+    },
+    "Anemic": {
+      "type": "Simple",
+      "direct_transition": "Terminal"
+    },
+    "Black_Anemic": {
+      "type": "Simple",
+      "distributed_transition": [
+        {
+          "transition": "Male_Anemic_Black",
+          "distribution": 0.27
+        },
+        {
+          "transition": "Female_Anemic_Black",
+          "distribution": 0.73
+        }
+      ]
+    },
+    "Male_Anemic_Black": {
+      "type": "Simple",
+      "distributed_transition": [
+        {
+          "transition": "M_Anemic_Black_0-14",
+          "distribution": 0.24
+        },
+        {
+          "transition": "M_Anemic_Black_15-49",
+          "distribution": 0.22
+        },
+        {
+          "transition": "M_Anemic_Black_50-79",
+          "distribution": 0.47
+        },
+        {
+          "transition": "M_Anemic_Black_80-85",
+          "distribution": 0.07
+        }
+      ]
+    },
+    "White_Anemic": {
+      "type": "Simple",
+      "distributed_transition": [
+        {
+          "transition": "Male_Anemic_White",
+          "distribution": 0.425
+        },
+        {
+          "transition": "Female_Anemic_White",
+          "distribution": 0.575
+        }
+      ]
+    },
+    "Hispanic_Anemic": {
+      "type": "Simple",
+      "distributed_transition": [
+        {
+          "transition": "Male_Anemic_Hispanic",
+          "distribution": 0.207
+        },
+        {
+          "transition": "Female_Anemic_Hispanic",
+          "distribution": 0.793
+        }
+      ]
+    },
+    "Unspecific_Race_Anemic": {
+      "type": "Simple",
+      "direct_transition": "Male_Unspecified_Race&Age_Anemic"
+    },
+    "F_Anemic_Black_0-14": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "F_Anemic_Black_15-49": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "F_Anemic_Black_50-79": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "F_Anemic_Black_80-85": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "M_Anemic_Black_0-14": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "M_Anemic_Black_15-49": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "M_Anemic_Black_50-79": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "M_Anemic_Black_80-85": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "M_Anemic_White_0-14": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "M_Anemic_White_15-49": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "M_Anemic_White_50-79": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "M_Anemic_White_80-85": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "F_Anemic_White_0-14": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "F_Anemic_White_15-49": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "F_Anemic_White_50-79": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "F_Anemic_White_80-85": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "M_Anemic_His_0-14": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "M_Anemic_His_15-49": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "M_Anemic_His_50-79": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "M_Anemic_His_80-85": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "F_Anemic_His_0-14": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "F_Anemic_His_15-49": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "F_Anemic_His_50-79": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "F_Anemic_His_80-85": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    },
+    "Male_Unspecified_Race&Age_Anemic": {
+      "type": "Simple",
+      "direct_transition": "Anemic"
+    }
+  }
+}

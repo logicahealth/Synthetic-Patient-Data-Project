@@ -1,0 +1,100 @@
+{
+  "name": "My Module",
+  "remarks": [
+    "A blank module"
+  ],
+  "states": {
+    "Initial": {
+      "type": "Initial",
+      "conditional_transition": [
+        {
+          "transition": "White_Males",
+          "condition": {
+            "condition_type": "And",
+            "conditions": [
+              {
+                "condition_type": "Gender",
+                "gender": "M"
+              },
+              {
+                "condition_type": "Race",
+                "race": "White"
+              }
+            ]
+          }
+        },
+        {
+          "transition": "White_Female",
+          "condition": {
+            "condition_type": "And",
+            "conditions": [
+              {
+                "condition_type": "Gender",
+                "gender": "F"
+              },
+              {
+                "condition_type": "Race",
+                "race": "White"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Terminal": {
+      "type": "Terminal"
+    },
+    "White_Males": {
+      "type": "Simple",
+      "distributed_transition": [
+        {
+          "transition": "WM_0_14",
+          "distribution": 0.1
+        },
+        {
+          "transition": "WM_15_49",
+          "distribution": 0.1
+        },
+        {
+          "transition": "Terminal",
+          "distribution": 0.8
+        }
+      ]
+    },
+    "White_Female": {
+      "type": "Simple",
+      "direct_transition": "White_Female"
+    },
+    "WM_0_14": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 0,
+        "high": 14,
+        "unit": "years"
+      }
+    },
+    "WM_15_49": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 15,
+        "high": 49,
+        "unit": "years"
+      }
+    },
+    "Anemia": {
+      "type": "ConditionOnset",
+      "assign_to_attribute": "anemia",
+      "target_encounter": "",
+      "codes": [
+        {
+          "system": "SNOMED-CT",
+          "code": 271737000,
+          "display": "Anemia (disorder)"
+        }
+      ],
+      "direct_transition": "Terminal"
+    }
+  }
+}

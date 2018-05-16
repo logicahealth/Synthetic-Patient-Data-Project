@@ -24,7 +24,7 @@
           }
         },
         {
-          "transition": "White_Female",
+          "transition": "White_Females",
           "condition": {
             "condition_type": "And",
             "conditions": [
@@ -38,32 +38,222 @@
               }
             ]
           }
+        },
+        {
+          "transition": "Black_Males",
+          "condition": {
+            "condition_type": "And",
+            "conditions": [
+              {
+                "condition_type": "Gender",
+                "gender": "M"
+              },
+              {
+                "condition_type": "Race",
+                "race": "Black"
+              }
+            ]
+          }
+        },
+        {
+          "transition": "Black_Females",
+          "condition": {
+            "condition_type": "And",
+            "conditions": [
+              {
+                "condition_type": "Gender",
+                "gender": "F"
+              },
+              {
+                "condition_type": "Race",
+                "race": "Black"
+              }
+            ]
+          }
+        },
+        {
+          "transition": "Hispanic_Males",
+          "condition": {
+            "condition_type": "And",
+            "conditions": [
+              {
+                "condition_type": "Gender",
+                "gender": "M"
+              },
+              {
+                "condition_type": "Race",
+                "race": "Hispanic"
+              }
+            ]
+          }
+        },
+        {
+          "transition": "Hispanic_Females",
+          "condition": {
+            "condition_type": "And",
+            "conditions": [
+              {
+                "condition_type": "Gender",
+                "gender": "F"
+              },
+              {
+                "condition_type": "Race",
+                "race": "Hispanic"
+              }
+            ]
+          }
         }
       ]
-    },
-    "Terminal": {
-      "type": "Terminal"
     },
     "White_Males": {
       "type": "Simple",
       "distributed_transition": [
         {
           "transition": "WM_0_14",
-          "distribution": 0.1
+          "distribution": 0.0031
         },
         {
           "transition": "WM_15_49",
-          "distribution": 0.1
+          "distribution": 0.0031
+        },
+        {
+          "transition": "WM_50_79",
+          "distribution": 0.0215
+        },
+        {
+          "transition": "WM_80_85",
+          "distribution": 0.0209
         },
         {
           "transition": "Terminal",
-          "distribution": 0.8
+          "distribution": 0.9514
         }
       ]
     },
-    "White_Female": {
+    "White_Females": {
       "type": "Simple",
-      "direct_transition": "White_Female"
+      "distributed_transition": [
+        {
+          "transition": "WF_0_14",
+          "distribution": 0.0033
+        },
+        {
+          "transition": "WF_15_49",
+          "distribution": 0.025
+        },
+        {
+          "transition": "WF_50_79",
+          "distribution": 0.0216
+        },
+        {
+          "transition": "WF_80_85",
+          "distribution": 0.0142
+        },
+        {
+          "transition": "Terminal",
+          "distribution": 0.9359
+        }
+      ]
+    },
+    "Black_Males": {
+      "type": "Simple",
+      "distributed_transition": [
+        {
+          "transition": "BM_0_14",
+          "distribution": 0.0218
+        },
+        {
+          "transition": "BM_15-49",
+          "distribution": 0.0198
+        },
+        {
+          "transition": "BM_50_79",
+          "distribution": 0.0422
+        },
+        {
+          "transition": "BM_80_85",
+          "distribution": 0.0056
+        },
+        {
+          "transition": "Terminal",
+          "distribution": 0.9106
+        }
+      ]
+    },
+    "Black_Females": {
+      "type": "Simple",
+      "distributed_transition": [
+        {
+          "transition": "BF_0_14",
+          "distribution": 0.0351
+        },
+        {
+          "transition": "BF_15-49",
+          "distribution": 0.1309
+        },
+        {
+          "transition": "BF_50_79",
+          "distribution": 0.0586
+        },
+        {
+          "transition": "BF_80_85",
+          "distribution": 0.0093
+        },
+        {
+          "transition": "Terminal",
+          "distribution": 0.7661
+        }
+      ]
+    },
+    "Hispanic_Males": {
+      "type": "Simple",
+      "distributed_transition": [
+        {
+          "transition": "HM_0_14",
+          "distribution": 0.007
+        },
+        {
+          "transition": "HM_15-49",
+          "distribution": 0.003
+        },
+        {
+          "transition": "HM_50_79",
+          "distribution": 0.0124
+        },
+        {
+          "transition": "HM_80_85",
+          "distribution": 0.0024
+        },
+        {
+          "transition": "Terminal",
+          "distribution": 0.9752
+        }
+      ]
+    },
+    "Hispanic_Females": {
+      "type": "Simple",
+      "distributed_transition": [
+        {
+          "transition": "HF_0_14",
+          "distribution": 0.0116
+        },
+        {
+          "transition": "HF_15-49",
+          "distribution": 0.0552
+        },
+        {
+          "transition": "HF_50_79",
+          "distribution": 0.0217
+        },
+        {
+          "transition": "HF_80_85",
+          "distribution": 0.004
+        },
+        {
+          "transition": "Terminal",
+          "distribution": 0.9075
+        }
+      ]
     },
     "WM_0_14": {
       "type": "Delay",
@@ -83,6 +273,204 @@
         "unit": "years"
       }
     },
+    "WM_50_79": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 50,
+        "high": 79,
+        "unit": "years"
+      }
+    },
+    "WM_80_85": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 80,
+        "high": 85,
+        "unit": "years"
+      }
+    },
+    "WF_0_14": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 0,
+        "high": 14,
+        "unit": "years"
+      }
+    },
+    "WF_15_49": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 15,
+        "high": 49,
+        "unit": "years"
+      }
+    },
+    "WF_50_79": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 50,
+        "high": 79,
+        "unit": "years"
+      }
+    },
+    "WF_80_85": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 80,
+        "high": 85,
+        "unit": "years"
+      }
+    },
+    "BM_0_14": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 0,
+        "high": 14,
+        "unit": "years"
+      }
+    },
+    "BM_15-49": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 15,
+        "high": 49,
+        "unit": "years"
+      }
+    },
+    "BM_50_79": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 50,
+        "high": 79,
+        "unit": "years"
+      }
+    },
+    "BM_80_85": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 80,
+        "high": 85,
+        "unit": "years"
+      }
+    },
+    "BF_0_14": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 0,
+        "high": 14,
+        "unit": "years"
+      }
+    },
+    "BF_15-49": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 15,
+        "high": 49,
+        "unit": "years"
+      }
+    },
+    "BF_50_79": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 50,
+        "high": 79,
+        "unit": "years"
+      }
+    },
+    "BF_80_85": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 80,
+        "high": 85,
+        "unit": "years"
+      }
+    },
+    "HM_0_14": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 0,
+        "high": 14,
+        "unit": "years"
+      }
+    },
+    "HM_15-49": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 15,
+        "high": 49,
+        "unit": "years"
+      }
+    },
+    "HM_50_79": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 50,
+        "high": 79,
+        "unit": "years"
+      }
+    },
+    "HM_80_85": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 80,
+        "high": 85,
+        "unit": "years"
+      }
+    },
+    "HF_0_14": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 0,
+        "high": 14,
+        "unit": "years"
+      }
+    },
+    "HF_15-49": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 15,
+        "high": 49,
+        "unit": "years"
+      }
+    },
+    "HF_50_79": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 50,
+        "high": 79,
+        "unit": "years"
+      }
+    },
+    "HF_80_85": {
+      "type": "Delay",
+      "direct_transition": "Anemia",
+      "range": {
+        "low": 80,
+        "high": 85,
+        "unit": "years"
+      }
+    },
     "Anemia": {
       "type": "ConditionOnset",
       "assign_to_attribute": "anemia",
@@ -95,6 +483,9 @@
         }
       ],
       "direct_transition": "Terminal"
+    },
+    "Terminal": {
+      "type": "Terminal"
     }
   }
 }

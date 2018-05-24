@@ -474,7 +474,7 @@
     "Anemia": {
       "type": "ConditionOnset",
       "assign_to_attribute": "anemia",
-      "target_encounter": "",
+      "target_encounter": "Anemia_Encounter",
       "codes": [
         {
           "system": "SNOMED-CT",
@@ -482,10 +482,27 @@
           "display": "Anemia (disorder)"
         }
       ],
-      "direct_transition": "Terminal"
+      "direct_transition": "Anemia Encounter"
     },
     "Terminal": {
       "type": "Terminal"
+    },
+    "Anemia Encounter": {
+      "type": "Encounter",
+      "encounter_class": "ambulatory",
+      "reason": "anemia",
+      "codes": [
+        {
+          "system": "SNOMED-CT",
+          "code": "1234",
+          "display": "Anemia Encounter"
+        }
+      ],
+      "direct_transition": "End_Anemia_Encounter"
+    },
+    "End_Anemia_Encounter": {
+      "type": "EncounterEnd",
+      "direct_transition": "Terminal"
     }
   }
 }

@@ -498,11 +498,94 @@
           "display": "Anemia Encounter"
         }
       ],
-      "direct_transition": "End_Anemia_Encounter"
+      "conditional_transition": [
+        {
+          "transition": "Hemoglobin_Males",
+          "condition": {
+            "condition_type": "Gender",
+            "gender": "M"
+          }
+        },
+        {
+          "transition": "Hemoglobin_Females",
+          "condition": {
+            "condition_type": "Gender",
+            "gender": "F"
+          }
+        }
+      ]
     },
     "End_Anemia_Encounter": {
       "type": "EncounterEnd",
       "direct_transition": "Terminal"
+    },
+    "Hemoglobin_Males": {
+      "type": "Observation",
+      "category": "laboratory",
+      "unit": "",
+      "codes": [
+        {
+          "system": "LOINC",
+          "code": "718-7",
+          "display": "Hemoglobin"
+        }
+      ],
+      "direct_transition": "HCT_Males",
+      "range": {
+        "low": 10,
+        "high": 13.5
+      }
+    },
+    "Hemoglobin_Females": {
+      "type": "Observation",
+      "category": "laboratory",
+      "unit": "",
+      "codes": [
+        {
+          "system": "LOINC",
+          "code": "718-7",
+          "display": "Hemoglobin"
+        }
+      ],
+      "direct_transition": "HCT_Females",
+      "range": {
+        "low": 9.5,
+        "high": 12
+      }
+    },
+    "HCT_Females": {
+      "type": "Observation",
+      "category": "laboratory",
+      "unit": "",
+      "codes": [
+        {
+          "system": "LOINC",
+          "code": "4544-3",
+          "display": "HCT"
+        }
+      ],
+      "direct_transition": "End_Anemia_Encounter",
+      "range": {
+        "low": 30,
+        "high": 36
+      }
+    },
+    "HCT_Males": {
+      "type": "Observation",
+      "category": "laboratory",
+      "unit": "",
+      "codes": [
+        {
+          "system": "LOINC",
+          "code": "4544-3",
+          "display": "HCT"
+        }
+      ],
+      "direct_transition": "End_Anemia_Encounter",
+      "range": {
+        "low": 35,
+        "high": 41
+      }
     }
   }
 }

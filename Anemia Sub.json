@@ -1,5 +1,5 @@
 {
-  "name": "My Module",
+  "name": "Anemia Sub",
   "remarks": [
     "A blank module"
   ],
@@ -59,12 +59,12 @@
     "Hemoglobin_Males": {
       "type": "Observation",
       "category": "laboratory",
-      "unit": "",
+      "unit": "g/dL",
       "codes": [
         {
           "system": "LOINC",
           "code": "718-7",
-          "display": "Hemoglobin"
+          "display": "Hemoglobin [Mass/volume] in Blood"
         }
       ],
       "direct_transition": "HCT_Males",
@@ -76,12 +76,12 @@
     "Hemoglobin_Females": {
       "type": "Observation",
       "category": "laboratory",
-      "unit": "",
+      "unit": "g/dL",
       "codes": [
         {
           "system": "LOINC",
           "code": "718-7",
-          "display": "Hemoglobin"
+          "display": "Hemoglobin [Mass/volume] in Blood"
         }
       ],
       "direct_transition": "HCT_Females",
@@ -93,15 +93,15 @@
     "HCT_Females": {
       "type": "Observation",
       "category": "laboratory",
-      "unit": "",
+      "unit": "%",
       "codes": [
         {
           "system": "LOINC",
-          "code": "4544-3",
-          "display": "HCT"
+          "code": "20570-8",
+          "display": "Hematocrit [Volume Fraction] of Blood"
         }
       ],
-      "direct_transition": "End_Anemia_Encounter",
+      "direct_transition": "Blood_Panel",
       "range": {
         "low": 30,
         "high": 36
@@ -110,19 +110,31 @@
     "HCT_Males": {
       "type": "Observation",
       "category": "laboratory",
-      "unit": "",
+      "unit": "%",
       "codes": [
         {
           "system": "LOINC",
-          "code": "4544-3",
-          "display": "HCT"
+          "code": "20570-8",
+          "display": "Hematocrit [Volume Fraction] of Blood"
         }
       ],
-      "direct_transition": "End_Anemia_Encounter",
+      "direct_transition": "Blood_Panel",
       "range": {
         "low": 35,
         "high": 41
       }
+    },
+    "Blood_Panel": {
+      "type": "DiagnosticReport",
+      "number_of_observations": 2,
+      "codes": [
+        {
+          "system": "LOINC",
+          "code": "24360-0",
+          "display": "Hemoglobin and Hematocrit panel - Blood"
+        }
+      ],
+      "direct_transition": "End_Anemia_Encounter"
     }
   }
 }

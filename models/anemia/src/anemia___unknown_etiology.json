@@ -278,7 +278,7 @@
     },
     "Anemia_Submodule": {
       "type": "CallSubmodule",
-      "submodule": "anemia/anemia_sub",
+      "submodule": "anemia_sub",
       "direct_transition": "End_Encounter"
     },
     "Delay_0_14": {

@@ -52,7 +52,10 @@
         "high": 20,
         "unit": "minutes"
       },
-      "direct_transition": "Medication_Reconciliation"
+      "direct_transition": "Medication_Reconciliation",
+      "remarks": [
+        "Future model: This should be a submodule that records social habits, nutrition, alcohol consumption."
+      ]
     },
     "Brief_Examination": {
       "type": "Procedure",
@@ -388,11 +391,17 @@
     },
     "PLACEHOLDER_Collect_Social_Habits": {
       "type": "Simple",
-      "direct_transition": "PLACEHOLDER_Collect_Nutrition"
+      "direct_transition": "PLACEHOLDER_Collect_Nutrition",
+      "remarks": [
+        "Done in review of systems."
+      ]
     },
     "PLACEHOLDER_Collect_Nutrition": {
       "type": "Simple",
-      "direct_transition": "Administer_Medications"
+      "direct_transition": "Administer_Medications",
+      "remarks": [
+        "Done in review of systems"
+      ]
     },
     "Administer_Medications": {
       "type": "Simple",
